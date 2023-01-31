@@ -26,14 +26,15 @@ def nearest_neighbor(not_visited_list, p, initial_point):
     if len(not_visited_list) == 1:
         return calc_distance(initial_point, p)
     else:
-        #print("P: " + str(p))
-        #print("BEFORE: " + str(not_visited_list))
+        print("P: " + str(p))
+        print("BEFORE: " + str(not_visited_list))
         not_visited_list.remove(p)
-        #print("AFTER: " + str(not_visited_list))
+        print("AFTER: " + str(not_visited_list))
         min = calc_distance(p, not_visited_list[0])
         closest_point = not_visited_list[0]
         for point in not_visited_list:
             check_dist = calc_distance(p, point)
+            #Don't use <= because that will use the latest rather than the first one
             if check_dist < min:
                 min = check_dist
                 closest_point = point
@@ -45,7 +46,8 @@ def is_visited(point):
 input_t, n = read_input("fixed-input.txt")
 #print(input_t)
 not_visited_list = input_t
-#start at 0
+#start at 0 idk if this is what they want
 nn_tour = nearest_neighbor(not_visited_list, not_visited_list[0], not_visited_list[0])
+#round
 nn_tour = round(nn_tour, 3)
 print("%.3f" % nn_tour)
