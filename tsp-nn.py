@@ -45,7 +45,10 @@ def nearest_neighbor(not_visited_list, p, initial_point):
             
 def main():
     #start_time = time.time()
-    input_t = read_input("fixed-input.txt")
+    if len(sys.argv) != 1:
+        input_t = read_input(str(sys.argv))
+    else: 
+        input_t = read_input("fixed-input.txt")
     #print(input_t)
     not_visited_list = input_t
     #start at 0 idk if this is what they want
