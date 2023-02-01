@@ -23,19 +23,11 @@ def calc_distance(point_1, point_2):
     d = math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
     return d
 
-def exhaustive_tour(temp_list, p, initial_point):
-    #distance back to original
-    t_list = temp_list
-    if len(t_list) == 1:
-        return calc_distance(initial_point, p)
-    else:
-        print("P: " + str(p))
-        print("BEFORE: " + str(temp_list))
-        t_list.remove(p)
-        print("AFTER: " + str(temp_list))
-        for point in t_list:
-            check_dist = calc_distance(p, point)
-            return exhaustive_tour(t_list, point, initial_point) + check_dist
+#TODO: Implement this shit god damn Im bad at recursion
+def exhaustive_tour():
+    return 0
+    
+
 def main():
     #start_time = time.time()
     input_t, n = read_input("fixed-input.txt")
