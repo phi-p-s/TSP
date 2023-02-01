@@ -14,7 +14,7 @@ def read_input(fname):
         #change from string to int
         for j in range(2):
             input_a[i][j] = int(input_a[i][j])
-    return input_a, n
+    return input_a
 
 #distance formula
 def calc_distance(point_1, point_2):
@@ -44,18 +44,16 @@ def nearest_neighbor(not_visited_list, p, initial_point):
         return nearest_neighbor(not_visited_list, closest_point, initial_point) + min
             
 def main():
-    print(str(sys.argv))
-    start_time = time.time()
-    input_t, n = read_input("fixed-input.txt")
+    #start_time = time.time()
+    input_t = read_input("fixed-input.txt")
     #print(input_t)
-    input("HI")
     not_visited_list = input_t
     #start at 0 idk if this is what they want
     nn_tour = nearest_neighbor(not_visited_list, not_visited_list[0], not_visited_list[0])
     #round
     nn_tour = round(nn_tour, 3)
     print("%.3f" % nn_tour)
-    print("Time in seconds: " + str(time.time() - start_time))
+    #print("Time in seconds: " + str(time.time() - start_time))
 
 if __name__ == "__main__":
     main()
