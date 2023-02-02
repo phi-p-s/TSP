@@ -56,7 +56,7 @@ def main():
     #round
     nn_tour = round(nn_tour, 3)
     print("%.3f" % nn_tour)
-    print("Time in seconds: " + str(time.time() - start_time))
+    #print("Time in seconds: " + str(time.time() - start_time))
     return 0
 
 if __name__ == "__main__":
