@@ -26,18 +26,15 @@ def calc_distance(point_1, point_2):
 #input_t is the input, i is which point its visiting
 def nearest_neighbor(not_visited_list, p, initial_point):
     #distance back to original
-    #print("P: " + str(p))
     if len(not_visited_list) == 1:
         return calc_distance(initial_point, p)
     else:
-        #print("BEFORE: " + str(not_visited_list))
         not_visited_list.remove(p)
-        #print("AFTER: " + str(not_visited_list))
         min = calc_distance(p, not_visited_list[0])
         closest_point = not_visited_list[0]
         for point in not_visited_list:
             check_dist = calc_distance(p, point)
-            #Don't use <= because that will use the latest rather than the first one
+            #using < to stay with the first input in case of tie
             if check_dist < min:
                 min = check_dist
                 closest_point = point

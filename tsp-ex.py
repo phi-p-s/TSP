@@ -23,13 +23,12 @@ def calc_distance(point_1, point_2):
     d = math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
     return d
 
-#TODO: Implement this
+#temp_list is copy of original list, start_index is the index its started at
 def exhaustive_tour(temp_list, start_index):
     start_point = temp_list[start_index]
     points = temp_list.copy()
     points.remove(start_point)
     #get all permutations of the points
-    #j = 0
     min = sys.maxsize
     for permutation in permutations(points):
         current_distance = 0
