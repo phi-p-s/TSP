@@ -34,6 +34,7 @@ def exhaustive_tour(temp_list, start_index):
     #get all permutations of the points
     distances = []
     #j = 0
+    min = sys.maxsize
     for permutation in permutations(points):
         current_distance = 0
         for i in range(len(permutation)-1):
@@ -44,8 +45,10 @@ def exhaustive_tour(temp_list, start_index):
         #get the last side
         current_distance += calc_distance(temp_list[start_index], permutation[i+1])
         #store into a list
-        distances.append(current_distance)
-    return min(distances)
+        if current_distance < min:
+            min = current_distance
+        #distances.append(current_distance)
+    return min
     
 
 def main():
@@ -58,7 +61,7 @@ def main():
     #round
     ex_tour = round(ex_tour, 3)
     print("%.3f" % ex_tour)
-    #print("Time in seconds: " + str(time.time() - start_time))
+    print("Time in seconds: " + str(time.time() - start_time))
 
 if __name__ == "__main__":
     main()
