@@ -39,10 +39,24 @@ def main():
     points_11 = generate_list(11)
     points_8 = generate_list(8)
     points_9 = generate_list(9)
+    points_7 = generate_list(7)
     generate_file(len(points_10), points_10)
     generate_file(len(points_11), points_11)
     generate_file(len(points_8), points_8)
     generate_file(len(points_9), points_9)
+    generate_file(len(points_7), points_7)
+
+    points_56 = generate_list(56)
+    points_112 = generate_list(112)
+    points_225 = generate_list(225)
+    points_450 = generate_list(450)
+    points_900 = generate_list(900)
+    
+    generate_file(len(points_56), points_56)
+    generate_file(len(points_112), points_112)
+    generate_file(len(points_225), points_225)
+    generate_file(len(points_450), points_450)
+    generate_file(len(points_900), points_900)
     return 0
 
 if __name__ == "__main__":

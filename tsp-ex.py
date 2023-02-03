@@ -25,14 +25,10 @@ def calc_distance(point_1, point_2):
 
 #TODO: Implement this
 def exhaustive_tour(temp_list, start_index):
-    points = []
     start_point = temp_list[start_index]
-    for point in temp_list:
-        #don't store the initial point, because we only need to examine one start point for exhaustive (repeats)
-        if point != start_point:
-            points.append(point)
+    points = temp_list.copy()
+    points.remove(start_point)
     #get all permutations of the points
-    distances = []
     #j = 0
     min = sys.maxsize
     for permutation in permutations(points):
@@ -44,24 +40,24 @@ def exhaustive_tour(temp_list, start_index):
             current_distance += calc_distance(permutation[i], permutation[i+1])
         #get the last side
         current_distance += calc_distance(temp_list[start_index], permutation[i+1])
-        #store into a list
+        #compare distance to the minimum distance
         if current_distance < min:
             min = current_distance
-        #distances.append(current_distance)
     return min
     
 
 def main():
-    start_time = time.time()
+    start_time = time.time_ns()
     if len(sys.argv) != 1:
         input_t = read_input(str(sys.argv[1]))
     else: 
-        input_t = read_input("input-10.txt")
-    ex_tour = exhaustive_tour(input_t, 0)
+        input_t = read_input("input-11.txt")
+    ex_tour = exhaustive_tour(input_t.copy(), 0)
     #round
     ex_tour = round(ex_tour, 3)
     print("%.3f" % ex_tour)
-    print("Time in seconds: " + str(time.time() - start_time))
+    runtime = round((time.time_ns() - start_time)*(10**-9), 6)
+    print("Time in seconds: " + str(runtime))
 
 if __name__ == "__main__":
     main()

@@ -44,11 +44,11 @@ def nearest_neighbor(not_visited_list, p, initial_point):
         return nearest_neighbor(not_visited_list, closest_point, initial_point) + min
             
 def main():
-    start_time = time.time()
+    start_time = time.time_ns()
     if len(sys.argv) != 1:
         input_t = read_input(str(sys.argv[1]))
     else: 
-        input_t = read_input("input-10.txt")
+        input_t = read_input("input-900.txt")
     #print(input_t)
     not_visited_list = input_t
     #start at 0 idk if this is what they want
@@ -56,7 +56,8 @@ def main():
     #round
     nn_tour = round(nn_tour, 3)
     print("%.3f" % nn_tour)
-    print("Time in seconds: " + str(time.time() - start_time))
+    runtime = round((time.time_ns() - start_time)*(10**-9), 6)
+    print("Time in seconds: " + str(runtime))
     return 0
 
 if __name__ == "__main__":
